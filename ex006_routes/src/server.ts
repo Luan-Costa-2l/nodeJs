@@ -1,31 +1,34 @@
 import express, { Request, Response} from 'express';
+import mainRoutes from './routes';
 
 const app = express();
 const port = 3000;
 
-// o get é um metodo como post, put e delete
-app.get('/', (req: Request, res: Response) => {
-    res.end('Hello World!');
-});
+app.use(mainRoutes);
 
-// outra forma de fazer
-const Home = (req: Request, res: Response) => {
-    res.end('It\'s a HOME');
-}
-app.get('/home', Home);
+// // o get é um metodo como post, put e delete
+// app.get('/', (req: Request, res: Response) => {
+//     res.end('Hello World!');
+// });
 
-// rota dinâmica
-app.get('/noticia/:slug', (req: Request, res: Response) => {
-    let slug =  req.params.slug
-    res.send(`Notícia: ${slug}`);
-});
+// // outra forma de fazer
+// const Home = (req: Request, res: Response) => {
+//     res.end('It\'s a HOME');
+// }
+// app.get('/home', Home);
 
-app.get('/:origin-:target', (req: Request, res: Response) => {
-    let {origin, target} = req.params;
+// // rota dinâmica
+// app.get('/noticia/:slug', (req: Request, res: Response) => {
+//     let slug =  req.params.slug
+//     res.send(`Notícia: ${slug}`);
+// });
 
-    res.send(`Procurando voos de ${origin.toUpperCase()} para ${target.toUpperCase()}`);
-});
+// app.get('/voo/:origin-:target', (req: Request, res: Response) => {
+//     let {origin, target} = req.params;
+
+//     res.send(`Procurando voos de ${origin.toUpperCase()} para ${target.toUpperCase()}`);
+// });
 
 app.listen(port, () => {
     console.log(`Exemple app listen on port http://localhost:${port}`);
-})
+});
