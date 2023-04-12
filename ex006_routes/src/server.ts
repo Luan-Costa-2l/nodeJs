@@ -6,6 +6,11 @@ const port = 3000;
 
 app.use(mainRoutes);
 
+// se nenhuma rota em mainRoutes funcionar ele continua e chega nessa, onde atualizei o status para 404
+app.use((req: Request, res: Response) => {
+    res.status(404).send('Page notfound!');
+})
+
 // // o get é um metodo como post, put e delete
 // app.get('/', (req: Request, res: Response) => {
 //     res.end('Hello World!');
