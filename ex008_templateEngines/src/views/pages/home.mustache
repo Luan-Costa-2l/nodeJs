@@ -1,10 +1,4 @@
-<html lang="pt-BR">
-<head>
-    <title>Página Home</title>
-</head>
-<body>
-    <h1>Título da página</h1>
-    <hr>
+{{>partials/header}}
 
     {{! conditionals }}
     {{#showWelcome}}
@@ -20,7 +14,7 @@
     {{!  loop}}
     <ul>
         {{#products}}
-            <li>{{title}} - R${{price}}</li>
+            {{>partials/productItem}}
         {{/products}}
     </ul>
 
@@ -35,5 +29,6 @@
             Não há frases hoje.
         {{/sentences}}
     </ul>
-</body>
-</html>
+
+
+{{>partials/footer}}

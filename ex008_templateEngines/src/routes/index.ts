@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
     // pegar produtos do banco de dados
     // organizar as informações desses produtos
     // envia para o template engine
-    res.render('home', {
+    res.render('pages/home', {
         user,
         showWelcome: true,
         showOld,
@@ -32,8 +32,12 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/news', (req, res) => {
-    res.send('A long lis about the news');
+router.get('/contact', (req, res) => {
+    res.render('pages/contact');
+});
+
+router.get('/about', (req, res) => {
+    res.render('pages/about');
 });
 
 export default router;
