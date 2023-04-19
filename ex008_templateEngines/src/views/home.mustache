@@ -31,6 +31,9 @@
         {{#sentences}}
             <li>{{.}}</li>
         {{/sentences}}
+        {{^sentences}} {{! if the list is empty}}
+            Não há frases hoje.
+        {{/sentences}}
     </ul>
 </body>
 </html>
