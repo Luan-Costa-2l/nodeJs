@@ -1,4 +1,4 @@
-<html>
+<html lang="pt-BR">
 <head>
     <title>Página Home</title>
 </head>
@@ -6,6 +6,10 @@
     <h1>Título da página</h1>
     <hr>
 
-    <p>Opa, tudo bem? Legal.</p>
+    {{#showWelcome}}
+        <p>Opa {{ user.name }}{{#showOld}}, você já tem {{ user.age }} anos?{{/showOld}}</p>
+    {{/showWelcome}}
+
+    <p>Como vai a vida</p>
 </body>
 </html>
