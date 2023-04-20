@@ -1,0 +1,13 @@
+{{>partials/header}}
+
+    <h2>Em que ano você nasceu?</h2>
+    <form method="GET">
+        <input type="text" name="year" placeholder="Digite o ano em que nasceu" />
+        <input type="submit" value="Enviar" />
+    </form>
+
+    {{#showAge}}
+        <p>Olá, você tem {{age}} anos</p>
+    {{/showAge}}
+
+{{>partials/footer}}
