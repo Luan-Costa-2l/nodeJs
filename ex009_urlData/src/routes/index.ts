@@ -21,15 +21,21 @@ router.get('/about', (req, res) => {
 });
 
 router.get('/name', (req: Request, res: Response) => {
-    // req pega info
-    let UserName: string = req.query.name as string;
-    // res manda info
+    res.render('pages/name');
+});
+
+router.post('/name-result', (req: Request, res: Response) => {
+    let user: string = '';
+    if(req.body.name) {
+        user = req.body.name;
+    }
     res.render('pages/name', {
-        UserName,
+        UserName: user,
     });
 });
 
 router.get('/age', (req: Request, res: Response) => {
+    // req pega info
     let showAge = false;
     const idade = () => {
         if (req.query.year) {
@@ -39,6 +45,7 @@ router.get('/age', (req: Request, res: Response) => {
             return currentDate - UserYear;
         }
     }
+    // res manda info
     res.render('pages/age', {
         age: idade(),
         showAge
