@@ -7,10 +7,5 @@ export const home = (req: Request, res: Response) => {
     }
     res.render('pages/home', {
         user,
-        products: [
-            { title: 'Product X', price: 10 },
-            { title: 'Product Y', price: 15 },
-            { title: 'Product Z', price: 20 },
-        ]
     });
 }

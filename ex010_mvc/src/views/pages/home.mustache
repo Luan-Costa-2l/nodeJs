@@ -3,4 +3,12 @@
     Hi, i'm a home
     <p>Você é {{user.name}} e tem {{user.age}} anos </p>
 
+    <hr />
+    <h2>Produtos</h2>
+    <ul>
+        {{#products}}
+            <li>{{title}} - R${{price}}</li>
+        {{/products}}
+    </ul>
+
 {{>partials/footer}}
