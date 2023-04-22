@@ -1,0 +1,12 @@
+{{>partials/header}}
+
+<form method="POST" action="/name-result">
+    <input type="text" name="name" placeholder="Digite o seu nome" />
+    <input type="submit" value="Enviar" />
+</form>
+
+{{#userName}}
+    Oi {{userName}}, tudo bem?
+{{/userName}}
+
+{{>partials/footer}}
