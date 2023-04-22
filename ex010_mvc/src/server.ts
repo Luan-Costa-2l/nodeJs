@@ -1,7 +1,10 @@
 import express from 'express';
 import mustacheExpress from 'mustache-express';
 import path from 'path';
+import dotenv from 'dotenv';
 import mainRoutes from './routes';
+
+dotenv.config();
 
 const app = express();
 
@@ -16,6 +19,7 @@ app.use('*', (req, res) => {
     res.send('Page not found');
 });
 
-app.listen(300, () => {
-    console.log(`Exemple app listening on port http://localhost:300`);
+app.listen(process.env.PORT, () => {
+    console.log(process.env.PORT)
+    console.log(`Exemple app listening on port http://localhost:4000`);
 });
