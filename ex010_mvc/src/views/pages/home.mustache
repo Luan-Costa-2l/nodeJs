@@ -4,11 +4,18 @@
     <p>Você é {{user.name}} e tem {{user.age}} anos </p>
 
     <hr />
-    <h2>Produtos</h2>
+    <h2>Products</h2>
     <ul>
         {{#products}}
             <li>{{title}} - R${{price}}</li>
         {{/products}}
+    </ul>
+
+    <h2>Products from R$25</h2>
+    <ul>
+        {{#expensives}}
+            <li>{{title}} - R${{price}}</li>
+        {{/expensives}}
     </ul>
 
 {{>partials/footer}}
