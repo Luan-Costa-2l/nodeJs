@@ -5,7 +5,10 @@ import { User } from '../models/User'
 
 export const home = async (req: Request, res: Response)=>{
 
-    let users = await User.findAll();
+    let users = await User.findAll({
+        attributes: ['name', ['age', 'idade']]
+    });
+    console.log(users)
 
 
     let age: number = 90;
