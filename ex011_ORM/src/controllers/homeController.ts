@@ -1,16 +1,12 @@
 import { Request, Response } from 'express';
 
-import { sequelize } from '../instances/postgresql';
-
 import { Product } from '../models/Product';
+import { User } from '../models/User'
 
 export const home = async (req: Request, res: Response)=>{
-    try {
-        await sequelize.authenticate();
-        console.log('Conexão com sucesso');
-    } catch (error) {
-        console.log('Deu erro: ', error);
-    } 
+
+    let users = await User.findAll();
+
 
     let age: number = 90;
     let showOld: boolean = false;
@@ -28,6 +24,6 @@ export const home = async (req: Request, res: Response)=>{
         showOld,
         products: list,
         expensives: expensiveList,
-        frasesDoDia: []
+        users
     });
 };

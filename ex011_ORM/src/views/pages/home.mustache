@@ -8,6 +8,15 @@ Opa {{name}} {{lastName}}, tudo bem?
     Beleza?
 {{/showOld}}
 
+<hr />
+
+<h2>Usuários do Banco</h2>
+<ul>
+    {{#users}}
+        <li>O usuário {{name}} tem {{age}} anos</li>
+    {{/users}}
+</ul>
+
 <hr/>
 <h2>Produtos</h2>
 <ul>
@@ -25,14 +34,5 @@ Opa {{name}} {{lastName}}, tudo bem?
 </ul>
 
 <hr/>
-
-<ul>
-    {{#frasesDoDia}}
-        <li>{{.}}</li>
-    {{/frasesDoDia}}
-    {{^frasesDoDia}}
-        Não há frases motivacionais hoje.
-    {{/frasesDoDia}}
-</ul>
 
 {{>partials/footer}}
