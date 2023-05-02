@@ -11,7 +11,9 @@ export const homePage = async (req: Request, res: Response) => {
         },
         order: [
             ['age', 'ASC']
-        ]
+        ],
+        offset: 2, // pula n itens
+        limit: 2
     });
 
     res.render('pages/home', {
