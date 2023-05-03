@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>Database</h1>
+    <h2>Novo usuário</h2>
     <form method="POST" action="/newUser">
         <fieldset>
             <legend>Fazer cadastro</legend>
@@ -15,12 +16,22 @@
             <input type="number" name="age" placeholder="Digite sua idade" /><br />
             <input type="submit" value="Enviar" />
         </fieldset>
-        
+    </form>
+
+    <h2>Atualizar usuário</h2>
+    <form method="POST" action="/updateUser">
+        <fieldset>
+            <legend>Atualizar cadastro</legend>
+            <input type="text" name="name" placeholder="Digite seu nome" /><br />
+            <input type="number" name="age" placeholder="Digite sua idade" /><br />
+            <input type="number" name="id" placeholder="Digite o id do usuário a ser atualizado" /><br />
+            <input type="submit" value="Enviar" />
+        </fieldset>
     </form>
     <h2>Usuários:</h2>
     <ul>
         {{#users}}
-            <li>{{name}} - {{age}} anos</li>
+            <li>{{id}} - {{name}} - {{age}} anos</li>
         {{/users}}
     </ul>
 </body>
