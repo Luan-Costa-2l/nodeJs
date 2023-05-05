@@ -40,3 +40,15 @@ export const updateUser = async (req: Request, res: Response) => {
 
     res.redirect('/');
 }
+
+export const deleteUser = async (req: Request, res:Response) => {
+    let { name, age, id} = req.body;
+    if (name || age || id) {
+        await User.destroy({
+            where: {
+                name
+            }
+        });
+    }
+    res.redirect('/');
+}

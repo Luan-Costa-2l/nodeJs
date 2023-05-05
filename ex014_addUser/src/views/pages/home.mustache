@@ -28,6 +28,14 @@
             <input type="submit" value="Enviar" />
         </fieldset>
     </form>
+    <h2>Deletar usuário</h2>
+    <form method="POST" action="/deleteUser">
+        <fieldset>
+            <legend>Deletar cadastro</legend>
+            <input type="text" name="name" placeholder="Digite o nome que quer deletar" /><br />
+            <input type="submit" value="Enviar" />
+        </fieldset>
+    </form>
     <h2>Usuários:</h2>
     <ul>
         {{#users}}
