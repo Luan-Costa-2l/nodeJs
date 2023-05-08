@@ -4,8 +4,12 @@ import { Product } from '../models/Product';
 import User from '../models/User';
 
 export const home = async (req: Request, res: Response)=>{
-    let users = await User.find({});
-    console.log('Users: ', users);
+    // existem várias formas, o find (retorna todos os users) é uma delas
+    let users = await User.find({
+        interest: 'finanças',
+        age: { $gt: 20 }
+    });
+    console.log(users)
 
 
     let age: number = 90;
