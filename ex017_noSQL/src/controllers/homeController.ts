@@ -8,7 +8,7 @@ export const home = async (req: Request, res: Response)=>{
     let users = await User.find({
         interest: 'finanças',
         age: { $gte: 20 }
-    }).sort({ age: -1 });
+    }).sort({ age: -1 }).skip(2).limit(2);
     console.log(users)
 
 
