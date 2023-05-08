@@ -7,8 +7,8 @@ export const home = async (req: Request, res: Response)=>{
     // existem várias formas, o find (retorna todos os users) é uma delas
     let users = await User.find({
         interest: 'finanças',
-        age: { $gt: 20 }
-    });
+        age: { $gte: 20 }
+    }).sort({ age: -1 });
     console.log(users)
 
 
