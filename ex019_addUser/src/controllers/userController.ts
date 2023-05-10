@@ -6,18 +6,17 @@ const formatInteres = (string: string) => {
 }
 
 export const newUser = async (req: Request, res: Response) => {
-    let query = req.body;
-    if (query) {
-        let result = await User.findOne({ where: {"name.firstName": query.body.firstName}});
+    if (req.body) {
+        let result = await User.findOne({ where: {"name.firstName": req.body.firstName}});
 
-        if (result) {
+        if (!result) {
             let user = new User();
 
-            user.name.firstName = query.body.firstName;
-            user.name.lastName = query.body.lastName;
-            user.email = query.body.email;
-            user.age = parseInt(query.body.age);
-            user.interest = formatInteres(query.body.interest);
+            user.name.firstName = req.body.firstName;
+            user.name.lastName = req.body.lastName;
+            user.email = req.body.email;
+            user.age = parseInt(req.body.age);
+            user.interest = formatInteres(req.body.interest);
             await user.save();
         } else {
             console.log('O usuário já existe!');
