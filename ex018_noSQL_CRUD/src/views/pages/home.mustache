@@ -16,23 +16,24 @@ Opa {{name}} {{lastName}}, tudo bem?
     {{/products}}
 </ul>
 
-<hr/>
-<h2>Produtos a partir de R$ 12</h2>
+<hr />
+
+<h2>Atualizar usuário</h2>
+<form method="POST" action="/updateUser">
+    <fieldset>
+        <legend>Update</legend>
+        <input type="text" name="firstName" placeholder="Digite o nome de quem quer editar" /> <br />
+        <input type="text" name="newFirstName" placeholder="Digite o novo nome para editar" />
+        <input type="submit" value="update" />
+    </fieldset>
+</form>
+
+<hr />
+
+<h2>Lista de usuários</h2>
 <ul>
-    {{#expensives}}
-        {{>partials/productItem}}
-    {{/expensives}}
+    {{#users}}
+    <li>{{name.firstName}} - {{name.lastName}} </li>
+    {{/users}}
 </ul>
-
-<hr/>
-
-<ul>
-    {{#frasesDoDia}}
-        <li>{{.}}</li>
-    {{/frasesDoDia}}
-    {{^frasesDoDia}}
-        Não há frases motivacionais hoje.
-    {{/frasesDoDia}}
-</ul>
-
 {{>partials/footer}}

@@ -1,51 +1,42 @@
 import { Request, Response } from 'express';
 
 import { Product } from '../models/Product';
-import User from '../models/User';
+import User, { UserType } from '../models/User';
 
 export const home = async (req: Request, res: Response)=>{
     let result = await User.find({ email: 'eduardo@exemple.com'});
-    console.log(result)
     if (result.length === 0) {
-        // let newUser = await User.create({
-        //     name: {
-        //         firstName: 'Pedro',
-        //         lastName: 'José'
-        //     },
-        //     age: 18,
-        //     email: 'pedro@exemple.com',
-        //     interest: ['futebol']
-        // });
-        // or
-
         let newUser = new User();
         newUser.name.firstName = 'Eduardo';
         newUser.name.lastName = 'Nunes';
         newUser.age = 18;
         newUser.email = 'eduardo@exemple.com';
         newUser.interest = ['games', 'matemática'];
-        let result = await newUser.save();
-        console.log(result);
+        await newUser.save();
     }
+
+    let users = await User.find({});
     
 
 
-    let age: number = 90;
-    let showOld: boolean = false;
-
-    if(age > 50) {
-        showOld = true;
-    }
 
     let list = Product.getAll();
-    let expensiveList = Product.getFromPriceAfter(12);
 
     res.render('pages/home', {
-        name: 'Bonieky',
-        lastName: 'Lacerda',
-        showOld,
+        name: 'Luan',
+        lastName: 'Costa',
         products: list,
-        expensives: expensiveList,
-        frasesDoDia: []
+        users
     });
 };
+
+export const updateUser = async (req: Request, res: Response) => {
+    let user = await User.where({"name.firstName": req.body.firstName}).findOne();
+    if (user) {
+        user.name.firstName = req.body.newFirstName;
+        await user.save();
+    } else {
+        console.log('Nome inválido');
+    }
+    res.redirect('/');
+}
