@@ -44,7 +44,7 @@ Opa {{name}} {{lastName}}, tudo bem?
 <h2>Lista de usuários</h2>
 <ul>
     {{#users}}
-    <li>{{name.firstName}} - {{name.lastName}}</li>
+    <li>{{name.firstName}} - {{name.lastName}} - {{age}} anos - <a href="/user/{{_id}}/addage">➕</a></li>
     {{/users}}
 </ul>
 {{>partials/footer}}

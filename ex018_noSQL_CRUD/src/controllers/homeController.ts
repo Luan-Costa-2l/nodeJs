@@ -46,3 +46,14 @@ export const deleteUser = async (req: Request, res: Response) => {
     await User.deleteOne({"name.firstName": name});
     res.redirect('/');
 }
+
+export const incrementAge = async (req: Request, res: Response) => {
+    let userId = req.params.id;
+    let user = await User.findById(userId);
+    if (user) {
+        await user.updateOne({age: user.age + 1});
+    } else {
+        console.log('Usuário não existe');
+    }
+    res.redirect('/');
+}
