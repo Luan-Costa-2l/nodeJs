@@ -39,4 +39,10 @@ export const updateUser = async (req: Request, res: Response) => {
         console.log('Nome inválido');
     }
     res.redirect('/');
+};
+
+export const deleteUser = async (req: Request, res: Response) => {
+    let name = req.body.firstName;
+    await User.deleteOne({"name.firstName": name});
+    res.redirect('/');
 }

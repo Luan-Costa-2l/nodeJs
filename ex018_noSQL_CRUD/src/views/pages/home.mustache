@@ -30,10 +30,21 @@ Opa {{name}} {{lastName}}, tudo bem?
 
 <hr />
 
+<h2>Deletar usuário</h2>
+<form method="POST" action="/deleteUser">
+    <fieldset>
+        <legend>Delete</legend>
+        <input type="text" name="firstName" placeholder="Digite o nome de quem quer deletar" /> <br />
+        <input type="submit" value="delete" />
+    </fieldset>
+</form>
+
+<hr />
+
 <h2>Lista de usuários</h2>
 <ul>
     {{#users}}
-    <li>{{name.firstName}} - {{name.lastName}} </li>
+    <li>{{name.firstName}} - {{name.lastName}}</li>
     {{/users}}
 </ul>
 {{>partials/footer}}
