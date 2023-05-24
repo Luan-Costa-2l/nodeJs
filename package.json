@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "dotenv": "^16.0.3"
+  },
+  "dependencies": {
+    "cors": "^2.8.5"
+  }
+}
