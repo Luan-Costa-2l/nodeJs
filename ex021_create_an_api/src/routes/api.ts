@@ -3,8 +3,9 @@ import * as apiController from '../controllers/apiController';
 
 const router = Router();
 
-router.get('/sentences', apiController.getSentences);
+router.post('/sentences', apiController.createSentence); // C
+router.get('/sentences', apiController.getSentences); // R
 router.get('/sentence/:id', apiController.getSentence);
-router.post('/sentences', apiController.createSentence);
+router.put('/sentence/:id', apiController.updateSentence) // U
 
 export default router;
