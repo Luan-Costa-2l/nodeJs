@@ -1,0 +1,7 @@
+CRUD sentences
+
+POST /sentences
+GET /sentences
+GET /sentence/123
+PUT /sentence/123
+DELETE /sentence/123
