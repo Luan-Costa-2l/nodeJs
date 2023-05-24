@@ -62,3 +62,9 @@ export const updateSentence = async (req: Request, res: Response) => {
         res.json(sentence);
     }
 }
+
+export const deleteSentence = async (req: Request, res: Response) => {
+    const id = req.params.id;
+    await Sentence.destroy({ where: { id } });
+    res.json({});
+}
