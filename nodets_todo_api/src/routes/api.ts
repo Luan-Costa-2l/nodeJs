@@ -1,13 +1,8 @@
 import { Router } from "express";
-import dotenv from 'dotenv';
-
-dotenv.config();
+import * as apiController from '../controllers/apiController';
 
 const router = Router();
 
-router.get('/ping', (req, res) => {
-    res.json({pong: true});
-});
-
+router.get('/tasks', apiController.getTasks);
 
 export default router;
