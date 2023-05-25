@@ -5,3 +5,5 @@ GET /sentences
 GET /sentence/123
 PUT /sentence/123
 DELETE /sentence/123
+
+- GET /sentence/random

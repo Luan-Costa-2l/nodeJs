@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { Sentence } from '../models/Sentence';
+import { sequelize } from '../instances/postgresql';
 
 export const getSentences = async (req: Request, res: Response) => {
     const response = await Sentence.findAll();
@@ -67,4 +68,16 @@ export const deleteSentence = async (req: Request, res: Response) => {
     const id = req.params.id;
     await Sentence.destroy({ where: { id } });
     res.json({});
+}
+
+export const randomSentence = async (req: Request, res: Response) => {
+    const sentence = await Sentence.findOne({
+        order: sequelize.random(),
+    });
+
+    if (sentence) {
+        res.json({ sentence });
+    } else {
+        res.json({ error: "there isn\'t sentences yet" });
+    }
 }
