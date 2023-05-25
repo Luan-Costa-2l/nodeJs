@@ -48,3 +48,12 @@ export const updateTask = async (req: Request, res: Response) => {
     await updatedTask.save();
     res.json({ updatedTask });
 }
+
+export const deleteTask = async (req: Request, res: Response) => {
+    const id = req.params.id;
+    const task = await Task.findByPk(id);
+    if (task) {
+        await task.destroy();
+    }
+    res.json({});
+}
