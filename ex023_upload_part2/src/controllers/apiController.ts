@@ -5,6 +5,6 @@ export const ping = (req: Request, res: Response) => {
 }
 
 export const uploadFile = (req: Request, res: Response) => {
-    console.log(req.file)
+    console.log('file: ', req.file)
     res.json({upload: true});
 }

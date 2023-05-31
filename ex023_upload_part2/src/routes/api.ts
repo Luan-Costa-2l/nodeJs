@@ -16,7 +16,12 @@ const storageConfig = multer.diskStorage({
 const memoryStorage = multer.memoryStorage();
 
 const upload = multer({
-    storage: memoryStorage,
+    storage: storageConfig,
+    // verify file type (optional)
+    fileFilter: (req, file, callback) => {
+        const allowed: string[] = ['image/jpg', 'image/jpeg', 'image/png'];
+        callback(null, allowed.includes(file.mimetype));
+    }
 });
 
 const router = Router();
