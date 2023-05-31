@@ -12,5 +12,10 @@ router.get('/ping', apiController.ping);
 router.post('/upload', upload.single('avatar'), apiController.uploadFile);
 // recive files with a limit
 router.post('/uploads', upload.array('avatars', 2), apiController.uploadFiles);
+// recevi Multiple file types
+router.post('/multiple', upload.fields([
+    {name: 'avatar', maxCount: 1},
+    {name: 'gallery', maxCount: 3}
+]), apiController.multiple);
 
 export default router;
