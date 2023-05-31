@@ -8,6 +8,9 @@ const router = Router();
 
 router.get('/ping', apiController.ping);
 
+// recive one file
 router.post('/upload', upload.single('avatar'), apiController.uploadFile);
+// recive files with a limit
+router.post('/uploads', upload.array('avatars', 2), apiController.uploadFiles);
 
 export default router;
