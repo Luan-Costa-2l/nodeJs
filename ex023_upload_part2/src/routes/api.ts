@@ -21,7 +21,9 @@ const upload = multer({
     fileFilter: (req, file, callback) => {
         const allowed: string[] = ['image/jpg', 'image/jpeg', 'image/png'];
         callback(null, allowed.includes(file.mimetype));
-    }
+    },
+    // filter/limit by size (optional)
+    limits: { fieldSize: 2000000}
 });
 
 const router = Router();
