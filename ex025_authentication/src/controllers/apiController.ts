@@ -1,5 +1,9 @@
 import { Request, Response } from 'express';
+import JWT from 'jsonwebtoken';
+import dotenv from 'dotenv';
 import { User } from '../models/User';
+
+dotenv.config();
 
 export const ping = async (req: Request, res: Response) => {
     res.json({ pong: true });
@@ -13,8 +17,14 @@ export const register = async (req: Request, res: Response) => {
         if (!hasUser) {
             const newUser = await User.create({ email, password });
 
+            const token = JWT.sign(
+                { id: newUser.id, email: newUser.email },
+                process.env.JWT_SECRET_KEY as string,
+                { expiresIn: '2h' }
+            );
+
             res.status(201);
-            res.json({ id: newUser.id })
+            res.json({ id: newUser.id, token });
         } else {
             res.json({ error: 'E-mail já existe!' });
         }
@@ -29,8 +39,14 @@ export const login = async (req: Request, res: Response) => {
         const user = await User.findOne({ where: { email, password } });
 
         if (user) {
+            const token = JWT.sign(
+                { id: user.id, email: user.email },
+                process.env.JWT_SECRET_KEY as string,
+                { expiresIn: '2h' }
+            );
+
             res.status(200);
-            res.json({ status: true });
+            res.json({ status: true, token });
             return;
         }
     }

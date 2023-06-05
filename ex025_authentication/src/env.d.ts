@@ -4,6 +4,7 @@ export interface IProcessEnv {
     readonly PGSQL_PORT: string;
     readonly PGSQL_USER: string;
     readonly PORT: string;
+    readonly JWT_SECRET_KEY: string;
 }
 
 declare global {
