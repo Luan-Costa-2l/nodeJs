@@ -1,4 +1,5 @@
 export interface IProcessEnv {
+    NODE_ENV: string;
     readonly PORT: string;
 
     readonly PGSQL_DB: string;
