@@ -7,7 +7,7 @@ describe('Testing user service', () => {
     const password = '1234';
 
     beforeAll(async () => {
-        await User.sync({ force: true }); // sincroniza ao banco apagando as tabelas e criando novas
+        await User.sync({ force: true }).catch(err => console.log('Erro encontrado', err)); // sincroniza ao banco apagando as tabelas e criando novas
     });
 
 
