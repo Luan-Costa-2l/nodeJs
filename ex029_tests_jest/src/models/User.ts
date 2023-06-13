@@ -9,7 +9,7 @@ export interface UserInstance extends Model {
 
 export const User = sequelize.define<UserInstance>('User', {
     id: {
-        type: DataTypes.NUMBER,
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
     },
